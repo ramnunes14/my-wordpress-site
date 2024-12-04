@@ -1,0 +1,27 @@
+{
+    "name": "ramnunes/my-wordpress-site",
+    "autoload": {
+        "psr-4": {
+            "Ramnunes\\MyWordpressSite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ricardo Nunes",
+            "email": "2118823@student.uma.pt"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^6.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.2",
+        "phpstan/phpstan": "^2.0",
+        "wp-coding-standards/wpcs": "^0.9.0"
+    }
+}
