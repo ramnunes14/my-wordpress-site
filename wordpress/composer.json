@@ -28,5 +28,8 @@
   },
   "provide": {
     "wordpress/core-implementation": "6.7.1"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.0"
   }
 }
