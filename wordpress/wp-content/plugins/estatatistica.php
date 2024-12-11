@@ -10,6 +10,9 @@ Author: Ricardo
 add_action( 'init', 'verstats' );
 
 function verstats() {
+    echo"<form action='/' >
+            <button style='padding:10px;background-color:blue;color:white;border-radius:10px;' type='submit'>Voltar a pesquisar</button>
+        </form>";
     session_start();
     
     $apiUrl = "https://api.football-data-api.com/league-players?key=example&season_id=2012&include=stats";
@@ -29,6 +32,7 @@ function verstats() {
     $data = json_decode($response, true);
     $data = $data['data'];
     function procura($data,$key,$type=null){
+        
         $result=[];
         $nacionalidades = [
             "Portugal" => "pt",    // Portugal
@@ -83,6 +87,30 @@ function verstats() {
                         echo "----------------------------------------------------------------------------------------</br></br>";
 
                     }
+                    else if($type=="stats"){
+                        
+                        if(procura($data,"goals_overall","key")>0){
+                            $resultado_home=(procura($data,"goals_home","key")/procura($data,"goals_overall","key"))*100;
+                            $resultado_home=(90*$resultado_home)/procura($data,"minutes_played_overall","key");
+                            $resultado_away=(procura($data,"goals_away","key")/procura($data,"goals_overall","key"))*100;
+                            $resultado_away=(90*$resultado_away)/procura($data,"minutes_played_overall","key");
+                        }
+                        else{
+                            $resultado_home=0;
+                            $resultado_away=0;
+                        }
+                        if($resultado_away>5 ||$resultado_home>5){
+                            echo "<h1 style='color:green;'>".procura($data,"full_name","key")." <span style='color:black;'>(Best Bet)🟢</span></h1>";
+                        }
+                        else if($resultado_away>2 ||$resultado_home>2){
+                            echo "<h1 style='color:orange;'>".procura($data,"full_name","key")." <span style='color:black;'>(Careful Bet)🟡</span></h1>";
+                        }
+                        else{
+                            echo "<h1 style='color:red;'>".procura($data,"full_name","key")." <span style='color:black;'>(Dangerous Bet)🔴</span></h1>";
+                        }
+                        echo "<span>Por jogo a probabilidade de ele marcar golo em casa é de ".$resultado_home."%</span></br>";
+                        echo "<span>Por jogo a probabilidade de ele marcar golo fora de casa é de ".$resultado_away."%</span>";
+                    }
                     //DEPOIS DO FORM APARECE AS SUGESTOES
                     else{
                         foreach($data as $chave=>$player){
@@ -107,6 +135,24 @@ function verstats() {
                             $encontrado=true;
                 }
             }
+            else if($key=="goals"){
+                 foreach($data as $dadoplayer){
+                            procura($dadoplayer,'player',"stats");
+                            $encontrado=true;
+                }   
+            }
+            else if($key=="cards"){
+                
+                    echo "Feature unavailable";
+                    echo "</br>";
+                    $encontrado=true;
+            }
+            else if($key=="minutes"){
+                
+                echo "Feature unavailable";
+                echo "</br>";
+                $encontrado=true;
+        }
             //BUSCA INICIAL DOS JOGADORES NO GERAL
             else {
                 echo "<h1>Jogadores encontrados:</h1>";
@@ -127,9 +173,6 @@ function verstats() {
 
     if($_POST!=null){
         procura($data,$_POST['player']);
-        echo"<form action='/' >
-            <button style='padding:10px;background-color:blue;color:white;border-radius:10px;' type='submit'>Voltar a pesquisar</button>
-        </form>";
         die();
     }
     if($_GET!=null){
@@ -137,4 +180,5 @@ function verstats() {
         foreach($_GET as $key=>$get){
         procura($data,str_replace("_"," ",$key),"exibir");}
     }
+    
 }
