@@ -1,0 +1,22 @@
+<?php
+
+function ver($data){
+    
+    $nacionalidades=getNac();
+    $bandeira_url = "https://flagcdn.com/w320/" . $nacionalidades[isTheSame($data,"nationality")] . ".png";
+    $cara_url= "https://cdn.footystats.org/img/players/".strtolower(isTheSame($data,"nationality"))."-".isTheSame($data,"shorthand").".png";
+    echo "<pre style='background-color:#e4ded0;padding:20px;'>";
+    echo "<img src='".$cara_url."'style='width: 100px;'></br></h1>";
+    echo "<h1>".isTheSame($data,"full_name")." ";
+    echo "<img src='".$bandeira_url."'style='width: 50px;position:absolute;'></br></h1>";
+    echo "<span style='color:red'> ->     ".isTheSame($data,"position")."</br></span>";
+    echo "<span style='color:red'> ->     ".isTheSame($data,"nationality")."</br></span>";
+    echo "<span style='color:red'> ->     ".isTheSame($data,"minutes_played_overall")."min played</br></span>";
+    echo "<span style='color:red'> ->     ".isTheSame($data,"goals_overall")." goals in ".isTheSame($data,"season")."</br></span>";
+    echo "<span style='color:red'> ->     ".isTheSame($data,"yellow_cards_overall")." yellow cards</br></span>";
+    echo "<a style='color:blue;' href='".isTheSame($data,"url")."'>More Info</br></a>";
+    echo "</pre>";
+    echo "</br>";
+    if(isTheSame($data,"full_name")!=null){return true;}
+}
+?>
