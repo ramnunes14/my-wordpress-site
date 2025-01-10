@@ -95,10 +95,8 @@ function type($data,$key){
 
 function erro(){
     echo "<div style='text-align:center;'>";
-    echo "<h1 style='color:red;'> Vini Don't Cry But Ups Something Went Wrong! </h1>";
+    echo "<h1 style='color:white;'>Seu Input Nao é válido</h1>";
     echo "</br>";
-    $url="https://sportal365images.com/process/smp-images-production/abola.pt/25032024/7d24bef0-5f71-4654-a3f0-920956b925a6.jpg";
-    echo "<img src='".$url."'style='width: 500px;'></br></h1>";
     echo "</div>";
     die();
     
