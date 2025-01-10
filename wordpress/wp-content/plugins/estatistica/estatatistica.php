@@ -31,7 +31,7 @@ function verstats() {
     {
         
         
-        // Verificar se $data está definida
+        
         if (isset($data)) {
             player($data, $_POST['player']);
         } else {
@@ -44,7 +44,7 @@ function verstats() {
         <button style='padding:10px;background-color:#768a4f;color:white;border-radius:10px;border:#abccbd;' type='submit' onmouseover='this.style.backgroundColor=\"#768a4f\";' onmouseout='this.style.backgroundColor=\"#768a4f\";'>Voltar a pesquisar</button>
         </form>";
         
-        // Verificar se $data está definida
+        
         if (isset($data)) {
             player($data, $_GET['name']);
         } else {
@@ -52,6 +52,16 @@ function verstats() {
         }
         die();
     }
+    if(isset($_GET['view'])&&$_GET['view']=='players'){
 
+        
+        if (isset($data)) {
+            player($data, 'all');
+        } else {
+            echo "Erro: A variável \$data não está definida.";
+        }
+        die();
+
+    }
     echo "</body>";
 }

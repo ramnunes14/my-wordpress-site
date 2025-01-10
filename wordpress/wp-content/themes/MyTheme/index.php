@@ -1,8 +1,8 @@
 <?php
-require 'header.php';
-echo "<body style='background-color:#122f51'>";
-if($_REQUEST==null){
 
+if($_REQUEST==null){
+    require 'header.php';
+    echo "<body style='background-color:#122f51'>";
 
 
 echo '<div class="centered" style="font-size:40px; position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%); color:white; padding: 20px;">
