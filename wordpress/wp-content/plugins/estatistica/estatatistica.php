@@ -9,7 +9,7 @@ Author: Ricardo
 add_action( 'init', 'verstats' );
 
 function verstats() {
-    
+    require 'config.php';
     session_start();
     // Verificar se o arquivo functions.php existe
     $functions_file = plugin_dir_path(__FILE__) . 'functions.php';
@@ -27,7 +27,7 @@ function verstats() {
         </form>";
     }
     echo "<body style='background-color:#122f51;text-align:center;'>";
-    if($_POST != null) 
+    if($_POST != null&& !isset($_POST['passe'])) 
     {
         
         
@@ -63,5 +63,18 @@ function verstats() {
         die();
 
     }
+    if(isset($_GET['view'])&&$_GET['view']=='conta'&& !isset($_SESSION['log'])){
+
+        
+        require 'Autenticacao/iniciarsessao.php';
+
+    }
+    if(isset($_GET['view'])&&$_GET['view']=='conta'&& isset($_SESSION['log'])){
+
+        
+        echo "<h1 style='color:white;font-size:30px'>Já logado</h1>";
+
+    }
+
     echo "</body>";
 }

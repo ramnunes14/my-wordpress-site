@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if($_REQUEST==null){
     require 'header.php';
     echo "<body style='background-color:#122f51'>";
