@@ -12,15 +12,15 @@ function verAssists($data){
     }
 
     if($resultado_away>5 || $resultado_home>5){
-        echo "<h1 style='color:green;'>".isTheSame($data,"full_name")." <span style='color:black;'>(Best Bet)🟢</span></h1>";
+        echo "<h1 style='color:green;'>".isTheSame($data,"full_name")." <span style='color:white'>(Best Bet)🟢</span></h1>";
     }
     else if($resultado_away>2 ||$resultado_home>2){
-        echo "<h1 style='color:orange;'>".isTheSame($data,"full_name")." <span style='color:black;'>(Careful Bet)🟡</span></h1>";
+        echo "<h1 style='color:orange;'>".isTheSame($data,"full_name")." <span style='color:white'>(Careful Bet)🟡</span></h1>";
     }
     else{
-        echo "<h1 style='color:red;'>".isTheSame($data,"full_name")." <span style='color:black;'>(Dangerous Bet)🔴</span></h1>";
+        echo "<h1 style='color:red;'>".isTheSame($data,"full_name")." <span style='color:white'>(Dangerous Bet)🔴</span></h1>";
     }
-    echo "<span>Por jogo a probabilidade de ele fazer uma assistencia em casa é de ".$resultado_home."%</span></br>";
-    echo "<span>Por jogo a probabilidade de ele fazer uma assistencia fora de casa é de ".$resultado_away."%</span>";
+    echo "<span style='color:white'>Por jogo a probabilidade de ele fazer uma assistencia em casa é de ".$resultado_home."%</span></br>";
+    echo "<span style='color:white'>Por jogo a probabilidade de ele fazer uma assistencia fora de casa é de ".$resultado_away."%</span>";
 }
 ?>

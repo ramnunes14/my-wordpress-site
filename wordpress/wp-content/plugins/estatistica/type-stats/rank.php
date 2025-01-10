@@ -14,7 +14,7 @@ function verRank($data){
         $resultado=isTheSame($data,"rank_in_league_top_defenders");
         $posicao="Defender";
     }
-    echo "<h1 style='color:black;'>".isTheSame($data,"full_name")."</h1>";
+    echo "<h1 style='color:white;'>".isTheSame($data,"full_name")."</h1>";
     echo "<span style='color:red;'>Este jogador esta no top ".$resultado." ".$posicao."s na sua liga</span></br>";
 }
 ?>

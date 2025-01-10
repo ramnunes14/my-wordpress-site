@@ -5,7 +5,7 @@ function ver($data){
     $nacionalidades=getNac();
     $bandeira_url = "https://flagcdn.com/w320/" . $nacionalidades[isTheSame($data,"nationality")] . ".png";
     $cara_url= "https://cdn.footystats.org/img/players/".strtolower(isTheSame($data,"nationality"))."-".isTheSame($data,"shorthand").".png";
-    echo "<pre style='background-color:#e4ded0;padding:20px;'>";
+    echo "<pre style='background-color:white;padding:20px;border-radius:30px;'>";
     echo "<img src='".$cara_url."'style='width: 100px;'></br></h1>";
     echo "<h1>".isTheSame($data,"full_name")." ";
     echo "<img src='".$bandeira_url."'style='width: 50px;position:absolute;'></br></h1>";

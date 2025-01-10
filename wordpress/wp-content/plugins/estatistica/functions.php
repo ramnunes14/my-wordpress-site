@@ -13,6 +13,7 @@ function isTheSame($data, $key) {
 }
 
 function player ($data,$key){
+    
     $_SESSION['erro']=false;
     foreach($data as $dadoplayer){
         foreach($dadoplayer as $chave=>$player){
@@ -28,7 +29,7 @@ function player ($data,$key){
 }
 
 function verificaPlayer($data,$key){
-
+    
     foreach($data as $d){
         if($d==$key){
             $_SESSION['erro']=true;
@@ -36,7 +37,7 @@ function verificaPlayer($data,$key){
             return true;
         }
     }
-
+    
 }
 
 function type($data,$key){
