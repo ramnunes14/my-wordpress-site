@@ -13,9 +13,24 @@ echo "<div style='text-decoration: none;padding:30px;background-color:#f7f4e8;bo
 <a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>
 <a href='?view=players' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>
 <a href='?API=true' style='text-decoration: none;padding:10px;font-size:20px;'>API Details</a>
-<a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>
 ";
+if(is_user_logged_in()){
+    echo  "<a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>
+";
+}
+if (is_user_logged_in()) {
+    // Botão de Logout
+    $logout_url = wp_logout_url(home_url());
+    echo '<a href="' . esc_url($logout_url) . '">Logout</a>';
+} else {
+    // Botão de Login
+    $login_url = wp_login_url(home_url());
+    echo '<a href="' . esc_url($login_url) . '">Login</a>';
+}
+
 
 echo "
 </div>";
+//http://localhost:8000/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8000%2F
 ?>
+
