@@ -12,7 +12,7 @@ echo"<h1 style='font-size:30px; position: absolute; font:Anton; top:3%; left: 9%
 echo "<div style='text-decoration: none;padding:30px;background-color:#f7f4e8;border-radius:10px;text-align: center;color:#122f51'>
 <a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>
 <a href='?view=players' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>
-<a href='?API=null' style='text-decoration: none;padding:10px;font-size:20px;'>API Details</a>
+<a href='?API=true' style='text-decoration: none;padding:10px;font-size:20px;'>API Details</a>
 <a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>
 ";
 

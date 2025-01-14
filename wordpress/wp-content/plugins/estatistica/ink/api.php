@@ -15,4 +15,5 @@ curl_close($ch);
 
 $data = json_decode($response, true);
 $data = $data['data'];
+
 ?>
