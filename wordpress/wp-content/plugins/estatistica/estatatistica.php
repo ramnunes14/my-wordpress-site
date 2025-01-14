@@ -77,48 +77,42 @@ function verstats() {
             die();
 
         }
-        if(isset($_GET['estado'])&&$_GET['estado']=='like')
-        {
-
-            if(isset($_GET['player']))
-            {
-                if(verificapl()==true&&verifico($data,$_GET['player'])==true)
-                {
-                    $_SESSION['likes'][]=$_GET['player'];
+        if (isset($_GET['estado']) && $_GET['estado'] == 'like') {
+            if (isset($_GET['player'])) {
+                if (verificapl() == true && verifico($data, $_GET['player']) == true) {
+                    if (!in_array($_GET['player'], $_SESSION['likes'])) {
+                        $_SESSION['likes'][] = $_GET['player'];
+                    }
                 }
-                
             }
-            
+        
             echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
-            foreach($_SESSION['likes'] as $like)
-            {
-                
-                
-                    echo "<span style='color:white;'>".$like."</span></br>";
-            
-                
-            }
-            
-        }
-        if(isset($_GET['estado'])&&$_GET['estado']=='unlike')
-        {
-
-            if(isset($_GET['player']))
-            {
-                if(verifico($data,$_GET['player'])==true&&removepl()==true)
-                {
+            if (!empty($_SESSION['likes'])) {
+                foreach ($_SESSION['likes'] as $like) {
+                    echo "<span style='color:white;'>" . htmlspecialchars($like) . "</span></br>";
                 }
-                
             }
-            
-            echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
-
-            foreach($_SESSION['likes'] as $like)
-            {
-                echo "<span style='color:white;'>".$like."</span></br>";
-            }
-            
         }
+        
+        if (isset($_GET['estado']) && $_GET['estado'] == 'unlike') {
+            if (isset($_GET['player'])) {
+                
+                $key = array_search($_GET['player'], $_SESSION['likes']);
+                if ($key !== false) {
+                    unset($_SESSION['likes'][$key]);
+                    
+                    $_SESSION['likes'] = array_values($_SESSION['likes']);
+                }
+            }
+        
+            echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
+            if (!empty($_SESSION['likes'])) {
+                foreach ($_SESSION['likes'] as $like) {
+                    echo "<span style='color:white;'>" . htmlspecialchars($like) . "</span></br>";
+                }
+            }
+        }
+        
         if(isset($_GET['API']) && $_GET['API']==true)
         {
 
@@ -141,18 +135,7 @@ function verificapl()
     }
     return true;
 }
-function removepl()
-{
-    foreach($_SESSION['likes'] as $likes)
-    {
-        if($likes == $_GET['player'])
-        {
-            
-            return true;
-        }
-    }
-    return false;
-}
+
 
 function verifico($data,$key)
 {
