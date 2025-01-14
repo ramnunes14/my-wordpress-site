@@ -63,18 +63,32 @@ function verstats() {
         die();
 
     }
-    if(isset($_GET['view'])&&$_GET['view']=='conta'&& !isset($_SESSION['log'])){
+    if(isset($_GET['estado'])&&$_GET['estado']=='like'){
 
-        
-        require 'Autenticacao/iniciarsessao.php';
-
+        if(isset($_GET['player'])){
+            if(verificapl()==true){
+                $_SESSION['likes'][]=$_GET['player'];
+            }
+            
+        }
+        echo "<pre style='background-color:white'>";
+        echo "<h2>LIKED PLAYERS</h2>";
+        foreach($_SESSION['likes'] as $like){
+            
+            
+                echo "<span>".$like."</span></br>";
+           
+            
+        }
+        echo '</pre>';
     }
-    if(isset($_GET['view'])&&$_GET['view']=='conta'&& isset($_SESSION['log'])){
-
-        
-        echo "<h1 style='color:white;font-size:30px'>Já logado</h1>";
-
-    }
-
     echo "</body>";
+}
+function verificapl(){
+    foreach($_SESSION['likes'] as $likes){
+        if($likes == $_GET['player']){
+            return false;
+        }
+    }
+    return true;
 }

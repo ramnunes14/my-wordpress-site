@@ -13,13 +13,9 @@ echo "<div style='text-decoration: none;padding:30px;background-color:#f7f4e8;bo
 <a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>
 <a href='?view=players' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>
 <a href='?API=null' style='text-decoration: none;padding:10px;font-size:20px;'>API Details</a>
+<a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>
 ";
-if(isset($SESSION['log'])){
-    echo "<a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Conta</a>";
-}
-else{
-    echo "<a href='?view=conta' style='text-decoration: none;padding:10px;font-size:20px;'>Iniciar Sessao</a>";
-}
+
 echo "
 </div>";
 ?>

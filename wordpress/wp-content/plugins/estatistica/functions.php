@@ -77,7 +77,6 @@ function type($data,$key){
         verNames($data);
         
     }
-
     else if($key=="rank"){
         require_once "type-stats/rank.php";
         verRank($data);
