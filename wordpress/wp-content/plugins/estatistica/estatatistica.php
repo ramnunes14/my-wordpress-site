@@ -83,7 +83,7 @@ function verstats() {
         if (isset($_GET['estado']) && $_GET['estado'] == 'like') {
             if (isset($_GET['player'])) {
                 if(isset($_SESSION['likes'])){
-                    if (verificapl() == true && verifico($data, $_GET['player']) == true) {
+                    if (verificapl() == true && verifico(json_decode($redis->get('players')), $_GET['player']) == true) {
                         if (!in_array($_GET['player'], $_SESSION['likes'])) {
                             $_SESSION['likes'][] = $_GET['player'];
                         }
@@ -108,7 +108,6 @@ function verstats() {
                 $key = array_search($_GET['player'], $_SESSION['likes']);
                 if ($key !== false) {
                     unset($_SESSION['likes'][$key]);
-                    
                     $_SESSION['likes'] = array_values($_SESSION['likes']);
                 }
             }

@@ -1,8 +1,8 @@
 <?php
 require_once "ink/api.php";
-require "ink/api-bandeiras.php";
+require_once "ink/api-bandeiras.php";
 require_once "ink/api-matches.php";
-require "type-stats/exibir.php";
+require_once "type-stats/exibir.php";
 
 function isTheSame($data, $key) {
     foreach ($data as $chave => $player) {
