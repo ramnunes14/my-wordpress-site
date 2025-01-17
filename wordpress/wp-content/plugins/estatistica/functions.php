@@ -1,6 +1,7 @@
 <?php
-require "ink/api.php";
+require_once "ink/api.php";
 require "ink/api-bandeiras.php";
+require "ink/api-matches.php";
 require "type-stats/exibir.php";
 
 function isTheSame($data, $key) {
@@ -91,6 +92,16 @@ function type($data,$key){
     }
 }
 
+function alterar_cor_fundo_admin() {
+    echo '
+    <style>
+        body.wp-admin {
+            background-color: white !important;
+        }
+        
+    </style>';
+}
+add_action('admin_head', 'alterar_cor_fundo_admin');
 
 function erro(){
     echo "<div style='text-align:center;'>";

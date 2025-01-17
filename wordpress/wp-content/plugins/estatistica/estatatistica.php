@@ -29,7 +29,7 @@ function verstats() {
         
         echo "
             <form action='/' >
-            <button style='padding:10px;background-color:#768a4f;color:white;border-radius:10px;border:#abccbd;' type='submit' onmouseover='this.style.backgroundColor=\"#768a4f\";' onmouseout='this.style.backgroundColor=\"#768a4f\";'>Voltar a pesquisar</button>
+            <button style='padding:10px;background-color:#038bbb;color:white;border-radius:10px;border:#abccbd;position: absolute;top:15%;left:4%' type='submit' >Voltar a pesquisar</button>
             </form>";
         }
         echo "<body style='background-color:#122f51;text-align:center;'>";
@@ -38,7 +38,7 @@ function verstats() {
 
             if (isset($data)) 
             {
-                player($data, $_POST['player']);
+                player($_SESSION['data'], $_POST['player']);
             } 
             else 
             {
@@ -52,8 +52,8 @@ function verstats() {
         {
             
             
-            if (isset($data)) {
-                player($data, $_GET['name']);
+            if (isset($_SESSION['data'])) {
+                player($_SESSION['data'], $_GET['name']);
             } 
             else {
                 echo "Erro: A variável \$data não está definida.";
@@ -66,9 +66,9 @@ function verstats() {
         {
 
             
-            if (isset($data)) 
+            if (isset($_SESSION['data'])) 
             {
-                player($data, 'all');
+                player($_SESSION['data'], 'all');
             } 
             else 
             {
@@ -79,10 +79,15 @@ function verstats() {
         }
         if (isset($_GET['estado']) && $_GET['estado'] == 'like') {
             if (isset($_GET['player'])) {
-                if (verificapl() == true && verifico($data, $_GET['player']) == true) {
-                    if (!in_array($_GET['player'], $_SESSION['likes'])) {
-                        $_SESSION['likes'][] = $_GET['player'];
+                if(isset($_SESSION['likes'])){
+                    if (verificapl() == true && verifico($data, $_GET['player']) == true) {
+                        if (!in_array($_GET['player'], $_SESSION['likes'])) {
+                            $_SESSION['likes'][] = $_GET['player'];
+                        }
                     }
+                }
+                else{
+                    $_SESSION['likes']=[];
                 }
             }
         
@@ -112,7 +117,12 @@ function verstats() {
                 }
             }
         }
-        
+        if(isset($_GET['view']) && $_GET['view']=='matches')
+        {
+            
+            require __DIR__ . '/matches/matches.php';
+
+        }
         if(isset($_GET['API']) && $_GET['API']==true)
         {
 
