@@ -9,6 +9,8 @@ Author: Ricardo
 add_action( 'init', 'verstats' );
 
 function verstats() {
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
     if(is_user_logged_in()){
         require 'config.php';
         session_start();
@@ -31,6 +33,7 @@ function verstats() {
             <form action='/' >
             <button style='padding:10px;background-color:#038bbb;color:white;border-radius:10px;border:#abccbd;position: absolute;top:15%;left:4%' type='submit' >Voltar a pesquisar</button>
             </form>";
+        echo "</br>";    
         }
         echo "<body style='background-color:#122f51;text-align:center;'>";
         if($_POST != null&& !isset($_POST['passe'])) 
@@ -38,7 +41,7 @@ function verstats() {
 
             if (isset($data)) 
             {
-                player($_SESSION['data'], $_POST['player']);
+                player(json_decode($redis->get('players'), true), $_POST['player']);
             } 
             else 
             {
@@ -52,8 +55,8 @@ function verstats() {
         {
             
             
-            if (isset($_SESSION['data'])) {
-                player($_SESSION['data'], $_GET['name']);
+            if (json_decode($redis->get('players'))!=null) {
+                player(json_decode($redis->get('players')), $_GET['name']);
             } 
             else {
                 echo "Erro: A variável \$data não está definida.";
@@ -66,9 +69,9 @@ function verstats() {
         {
 
             
-            if (isset($_SESSION['data'])) 
+            if (json_decode($redis->get('players'))!=null) 
             {
-                player($_SESSION['data'], 'all');
+                player(json_decode($redis->get('players')), 'all');
             } 
             else 
             {
@@ -119,7 +122,7 @@ function verstats() {
         }
         if(isset($_GET['view']) && $_GET['view']=='matches')
         {
-            
+
             require __DIR__ . '/matches/matches.php';
 
         }

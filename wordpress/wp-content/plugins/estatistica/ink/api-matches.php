@@ -14,6 +14,6 @@ if (curl_errno($game))
 curl_close($game);
 
 $data_game = json_decode($responde_game, true);
-$_SESSION['games'] = $data_game['data'];
+$redis->set('games', json_encode($data_game['data']));
 
 ?>

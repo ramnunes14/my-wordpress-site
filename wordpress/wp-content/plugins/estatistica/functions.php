@@ -1,7 +1,7 @@
 <?php
 require_once "ink/api.php";
 require "ink/api-bandeiras.php";
-require "ink/api-matches.php";
+require_once "ink/api-matches.php";
 require "type-stats/exibir.php";
 
 function isTheSame($data, $key) {

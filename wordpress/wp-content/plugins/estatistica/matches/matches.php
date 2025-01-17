@@ -1,6 +1,6 @@
 <?php
 echo "</br>";
-foreach ($_SESSION['games'] as $dadoplayer) {
+foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
     echo "<div style='display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 70px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
 
     $home_name = "";
