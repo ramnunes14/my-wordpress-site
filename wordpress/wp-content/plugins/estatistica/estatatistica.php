@@ -14,7 +14,6 @@ function verstats() {
     if(is_user_logged_in()){
         require 'config.php';
         session_start();
-        // Verificar se o arquivo functions.php existe
         $functions_file = plugin_dir_path(__FILE__) . 'functions.php';
         if (file_exists($functions_file))
         {
@@ -80,45 +79,59 @@ function verstats() {
             die();
 
         }
-        if (isset($_GET['estado']) && $_GET['estado'] == 'like') {
+
+
+        $current_user_id = get_current_user_id(); 
+        if (!$current_user_id) {
+            die("<h2 style='color:white'>Usuário não autenticado.</h2>");
+        }
+
+        
+        $liked_players = get_user_meta($current_user_id, 'liked_players', true);
+        if (!is_array($liked_players)) {
+            $liked_players = [];
+        }
+
+        
+        if (isset($_GET['estado']) && in_array($_GET['estado'], ['like', 'unlike'])) {
             if (isset($_GET['player'])) {
-                if(isset($_SESSION['likes'])){
-                    if (verificapl() == true && verifico(json_decode($redis->get('players')), $_GET['player']) == true) {
-                        if (!in_array($_GET['player'], $_SESSION['likes'])) {
-                            $_SESSION['likes'][] = $_GET['player'];
+                $player = sanitize_text_field($_GET['player']);
+
+                if ($_GET['estado'] == 'like') {
+                    if (verificapl() && verifico(json_decode($redis->get('players')), $player)) {
+                        if (!in_array($player, $liked_players)) {
+                            $liked_players[] = $player;
+                            update_user_meta($current_user_id, 'liked_players', $liked_players);
                         }
                     }
-                }
-                else{
-                    $_SESSION['likes']=[];
-                }
-            }
-        
-            echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
-            if (!empty($_SESSION['likes'])) {
-                foreach ($_SESSION['likes'] as $like) {
-                    echo "<span style='color:white;'>" . htmlspecialchars($like) . "</span></br>";
-                }
-            }
-        }
-        
-        if (isset($_GET['estado']) && $_GET['estado'] == 'unlike') {
-            if (isset($_GET['player'])) {
-                
-                $key = array_search($_GET['player'], $_SESSION['likes']);
-                if ($key !== false) {
-                    unset($_SESSION['likes'][$key]);
-                    $_SESSION['likes'] = array_values($_SESSION['likes']);
-                }
-            }
-        
-            echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
-            if (!empty($_SESSION['likes'])) {
-                foreach ($_SESSION['likes'] as $like) {
-                    echo "<span style='color:white;'>" . htmlspecialchars($like) . "</span></br>";
+                    $redirect_url = home_url('?view=players');
+                    wp_redirect($redirect_url);
+                    exit; 
+                } 
+                elseif ($_GET['estado'] == 'unlike') {
+                    $key = array_search($player, $liked_players);
+                    if ($key !== false) {
+                        unset($liked_players[$key]);
+                        $liked_players = array_values($liked_players);
+                        update_user_meta($current_user_id, 'liked_players', $liked_players);
+                    }
+                    $redirect_url = home_url('?view=players');
+                    wp_redirect($redirect_url);
+                    exit; 
                 }
             }
         }
+
+        
+        
+        if (!empty($liked_players)&&$_GET['estado']=='like') {
+            echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
+            foreach ($liked_players as $like) {
+                echo "<span style='color:white;'>" . $like . "</span></br>";
+            }
+        }
+
+
         if(isset($_GET['view']) && $_GET['view']=='matches')
         {
 
@@ -132,7 +145,7 @@ function verstats() {
 
         }
         echo "</body>";
-    }
+        }
     
 }
 

@@ -18,11 +18,22 @@ function ver($data){
         echo "<span style='color:red'>".isTheSame($data,"yellow_cards_overall")." yellow cards</br></span>";
         echo "<a style='color:blue;' href='".isTheSame($data,"url")."'>More Info</br></a>";
         $tem_like=false;
-        foreach($_SESSION['likes'] as $like){
-            if(isTheSame($data,"full_name")==$like){
-                $tem_like=true;
-            }
+        $current_user_id = get_current_user_id(); 
+        
+        if (!$current_user_id) {
+            die("<h2 style='color:white'>Usuário não autenticado.</h2>");
         }
+        $liked_players = get_user_meta($current_user_id, 'liked_players', true);
+        
+        
+        if (!is_array($liked_players)) {
+            $liked_players = [];
+            
+        }
+
+        
+        $player_name = isTheSame($data, "full_name");
+        $tem_like = in_array($player_name, $liked_players);
 
         if($tem_like){
             echo "<a style='color:red;' href='?player=".isTheSame($data,"full_name")."& estado=unlike'>❤️UNLIKE</br></a>";

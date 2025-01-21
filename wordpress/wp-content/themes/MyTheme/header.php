@@ -23,16 +23,12 @@ if(is_user_logged_in()){
 ";
 }
 if (is_user_logged_in()) {
-    // Botão de Logout
-    echo '<svg width="100" height="100" style="position: absolute; top:11.3%; left: 98%; transform: translate(-50%, -50%);"><a href="/wp-admin/options-general.php">
-        <circle cx="20" cy="20" r="20" fill="black"/>
-        <a></svg>';
     $logout_url = wp_logout_url(home_url());
-    echo '<a href="' . esc_url($logout_url) . '" style="font-size:20px;color:red;text-decoration: none; position: absolute; font:Anton; top:7%; left: 92%; transform: translate(-50%, -50%);">Logout</a>';
-} else {
-    // Botão de Login
+    echo '<a href="' . esc_url($logout_url). '" style="font-size:20px;color:red;text-decoration: none; position: absolute; left: 94%;">Logout</a>';
+} 
+else {
     $login_url = wp_login_url(home_url());
-    echo '<a href="' . esc_url($login_url) . '" style="font-size:20px;text-decoration: none; position: absolute; font:Anton; top:7%; left: 95%; transform: translate(-50%, -50%);">Login</a>';
+    echo '<a href="' . esc_url($login_url) . '" style="font-size:20px;text-decoration: none; position: absolute;  left: 95%;">Login</a>';
 }
 if (is_user_logged_in()) {
 echo "<a href='?API=true' style='text-decoration: none;padding:10px;font-size:20px;'>API Details</a>";

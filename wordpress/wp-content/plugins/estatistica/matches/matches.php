@@ -12,7 +12,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
         
         if ($chave == 'home_name') {
             $player=resolve_nome($player);
-            $home_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:520px;text-align:left;word-wrap: break-word;'>$player</div>";
+            $home_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:690px;text-align:left;word-wrap: break-word;'>$player</div>";
         }
         
         if ($chave == 'home_image') {
@@ -22,7 +22,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
 
         if ($chave == 'away_name') {
             $player=resolve_nome($player);
-            $away_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:870px;text-align:right;'>$player</div>";
+            $away_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:1100px;text-align:right;'>$player</div>";
         }
 
         if ($chave == 'away_image') {
