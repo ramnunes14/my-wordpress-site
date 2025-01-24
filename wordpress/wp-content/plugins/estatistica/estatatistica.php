@@ -142,6 +142,7 @@ function verstats() {
 
         if(isset($_GET['view']) && $_GET['view']=='matches')
         {
+            
             echo "<h1 style='color:white'>Today Matches</h1>";
             require __DIR__ . '/matches/matches.php';
 

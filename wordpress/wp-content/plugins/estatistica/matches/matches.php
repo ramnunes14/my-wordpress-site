@@ -2,7 +2,7 @@
 require_once realpath(__DIR__.'/..').'/ink/api-matches.php';
 echo "</br>";
 foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
-    echo "<div style='display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 70px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
+    echo "<div style='display: flex;position:relative; flex-direction: column; align-items: center; justify-content: center; padding: 70px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
 
     $home_name = "";
     $away_name = "";
@@ -13,7 +13,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
         
         if ($chave == 'home_name') {
             $player=resolve_nome($player);
-            $home_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:760px;text-align:left;word-wrap: break-word;'>$player</div>";
+            $home_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:50px;text-align:left;word-wrap: break-word;'>$player</div>";
         }
         
         if ($chave == 'home_image') {
@@ -23,7 +23,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
 
         if ($chave == 'away_name') {
             $player=resolve_nome($player);
-            $away_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:1170px;text-align:right;'>$player</div>";
+            $away_name = "<div style='font-weight: bold; font-size: 18px;position:absolute;left:500px;text-align:right;'>$player</div>";
         }
 
         if ($chave == 'away_image') {
