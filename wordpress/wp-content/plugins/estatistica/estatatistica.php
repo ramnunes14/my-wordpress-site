@@ -130,12 +130,27 @@ function verstats() {
                 echo "<span style='color:white;'>" . $like . "</span></br>";
             }
         }
+        else if($_GET['estado']=='like'){
+            echo "<h2 style='color:white'>NO LIKED PLAYERS</h2>";
+        }
 
 
         if(isset($_GET['view']) && $_GET['view']=='matches')
         {
-
+            echo "<h1 style='color:white'>Today's Matches</h1>";
             require __DIR__ . '/matches/matches.php';
+
+        }
+        if(isset($_GET['id']))
+        {
+
+            require __DIR__ . '/matches/league-matches.php';
+
+        }
+        if(isset($_GET['view']) && $_GET['view']=='leagues')
+        {
+
+            require __DIR__ . '/leagues/leagues.php';
 
         }
         if(isset($_GET['API']) && $_GET['API']==true)
@@ -151,11 +166,13 @@ function verstats() {
 
 function verificapl()
 {
-    foreach($_SESSION['likes'] as $likes)
-    {
-        if($likes == $_GET['player'])
+    if(isset($_SESSION['likes'])){
+        foreach($_SESSION['likes'] as $likes)
         {
-            return false;
+            if($likes == $_GET['player'])
+            {
+                return false;
+            }
         }
     }
     return true;

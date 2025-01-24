@@ -8,15 +8,17 @@ echo '<!DOCTYPE html><html>';
  <link rel="stylesheet" href="'.bloginfo('stylesheet_url').'">'.
  wp_head().'
 </head>';
-echo"<h1 style='font-size:30px; position: absolute; font:Anton; top:3.9%; left: 12%; transform: translate(-50%, -50%); color:white; padding: 20px;color:#122f51'>Estatistica Futebol</h1>";
+
 echo "<div style='text-decoration: none;padding:30px;background-color:#f7f4e8;border-radius:10px;text-align: center;color:#122f51'>
+<span style='font-size:30px; position: absolute;left: 12%;color:white;color:#122f51'>Estatistica Futebol</span>
 <a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>";
 if(is_user_logged_in()){
     echo "
 
 <a href='?view=players' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>
 
-<a href='?view=matches' style='text-decoration: none;padding:10px;font-size:20px;'>Matches</a>
+<a href='?view=matches' style='text-decoration: none;padding:10px;font-size:20px;'>Today Matches</a>
+<a href='?view=leagues' style='text-decoration: none;padding:10px;font-size:20px;'>Leagues</a>
 ";
 
     echo  "<a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>

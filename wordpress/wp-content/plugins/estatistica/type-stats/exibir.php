@@ -7,7 +7,7 @@ function ver($data){
     $cara_url= "https://cdn.footystats.org/img/players/".strtolower(isTheSame($data,"nationality"))."-".isTheSame($data,"shorthand").".png";
     if (filter_var($cara_url, FILTER_VALIDATE_URL)) 
     {
-        echo "<div style='display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
+        echo "<div style='align-items: center; justify-content: center; padding: 20px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
         echo "<img src='".$cara_url."'style='width: 100px;'></br></h1>";
         echo "<h1>".isTheSame($data,"full_name")." ";
         echo "<img src='".$bandeira_url."'style='width: 50px;position:absolute;'></br></h1>";
@@ -45,7 +45,7 @@ function ver($data){
         
 
         echo "</div>";
-        echo "</br>";
+        
         if(isTheSame($data,"full_name")!=null)
         {
             return true;

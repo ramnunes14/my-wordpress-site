@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if($_REQUEST==null){
     require 'header.php';
     echo "<body style='background-color:#122f51;'>";
@@ -22,6 +23,8 @@ echo"
 			
 			
 		</form>";
+	
+
 }
 else{
 	echo "<h1 style='text-align:center;'>Faz Login para acederes aos conteúdos da página</h1>";

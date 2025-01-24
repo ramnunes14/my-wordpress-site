@@ -1,5 +1,5 @@
 <?php
-$apiUrlgame = "https://api.football-data-api.com/league-matches?key=example&season_id=2012";
+$apiUrlgame = "https://api.football-data-api.com/todays-matches?key=test85g57";
 $game = curl_init();
 curl_setopt($game, CURLOPT_URL, $apiUrlgame);
 curl_setopt($game, CURLOPT_RETURNTRANSFER, true);
