@@ -5,6 +5,7 @@ echo '<!DOCTYPE html><html>';
  <title>&raquo; '.is_front_page() ? bloginfo('description') : wp_title('').'</title>
  <meta charset="'.bloginfo( 'charset' ).'">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="'.bloginfo('stylesheet_url').'">'.
  wp_head().'
 </head>';

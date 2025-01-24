@@ -34,7 +34,7 @@ function verstats() {
             </form>";
         echo "</br>";    
         }
-        echo "<body style='background-color:#122f51;text-align:center;'>";
+        echo "<body style='background-color:#122f51;text-align:center;font-family: \"Roboto\", sans-serif;'>";
         if($_POST != null&& !isset($_POST['passe'])) 
         {
 
