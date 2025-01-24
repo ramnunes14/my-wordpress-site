@@ -109,14 +109,15 @@ function verstats() {
                     exit; 
                 } 
                 elseif ($_GET['estado'] == 'unlike') {
+                    
                     $key = array_search($player, $liked_players);
                     if ($key !== false) {
                         unset($liked_players[$key]);
                         $liked_players = array_values($liked_players);
                         update_user_meta($current_user_id, 'liked_players', $liked_players);
                     }
-                    $redirect_url = home_url('?view=players');
-                    wp_redirect($redirect_url);
+                    $previous_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : home_url();
+                    wp_redirect($previous_url);
                     exit; 
                 }
             }
@@ -127,7 +128,11 @@ function verstats() {
         if (!empty($liked_players)&&$_GET['estado']=='like') {
             echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
             foreach ($liked_players as $like) {
-                echo "<span style='color:white;'>" . $like . "</span></br>";
+                echo "<div style='display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 70px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
+
+                echo "<span style='color:black;'>" . $like . "</span></br>";
+                echo "<a style='color:red;' href='?player=".$like." & estado=unlike'>❤️UNLIKE</br></a>";
+                echo "</div>";
             }
         }
         else if($_GET['estado']=='like'){
@@ -137,7 +142,7 @@ function verstats() {
 
         if(isset($_GET['view']) && $_GET['view']=='matches')
         {
-            echo "<h1 style='color:white'>Today's Matches</h1>";
+            echo "<h1 style='color:white'>Today Matches</h1>";
             require __DIR__ . '/matches/matches.php';
 
         }

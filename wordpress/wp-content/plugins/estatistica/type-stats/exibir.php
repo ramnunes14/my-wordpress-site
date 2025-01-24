@@ -36,10 +36,10 @@ function ver($data){
         $tem_like = in_array($player_name, $liked_players);
 
         if($tem_like){
-            echo "<a style='color:red;' href='?player=".isTheSame($data,"full_name")."& estado=unlike'>❤️UNLIKE</br></a>";
+            echo "<a id='unlike' style='color:red;' href='?player=".isTheSame($data,"full_name")."& estado=unlike'>❤️UNLIKE</br></a>";
         }
         else{
-            echo "<a style='color:red;' href='?player=".isTheSame($data,"full_name")."& estado=like'>❤️LIKE</br></a>";
+            echo "<a id='like' style='color:red;' href='?player=".isTheSame($data,"full_name")."& estado=like'>❤️LIKE</br></a>";
         }
         
         
