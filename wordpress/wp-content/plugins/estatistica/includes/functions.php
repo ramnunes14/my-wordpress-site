@@ -1,9 +1,8 @@
 <?php
-require_once "ink/api.php";
-require_once "ink/api-bandeiras.php";
-require_once "ink/api-leagues.php";
+require_once plugin_dir_path(__FILE__) . "../ink/api.php";
+require_once plugin_dir_path(__FILE__) ."../ink/api-bandeiras.php";
+require_once plugin_dir_path(__FILE__) ."../ink/api-leagues.php";
 require_once "type-stats/exibir.php";
-
 function isTheSame($data, $key) {
     foreach ($data as $chave => $player) {
         if ($chave == $key) {
@@ -115,4 +114,50 @@ function erro(){
     echo "</div>";
     die();
     
+}
+// Função que adiciona os menus do plugin no painel de administração
+function estatistica_menu() {
+    // Adiciona a página "Players"
+    add_menu_page(
+        'Players', // Título da página
+        'Players', // Nome do menu
+        'manage_options', // Permissões para acessar
+        'players', // Slug
+        'estatistica_players_page' // Função que irá renderizar o conteúdo
+    );
+
+    // Adiciona a página "Today Matches"
+    add_submenu_page(
+        'players', // Página pai
+        'Today Matches', // Título da página
+        'Today Matches', // Nome do submenu
+        'manage_options', // Permissões
+        'matches', // Slug
+        'estatistica_matches_page' // Função que irá renderizar o conteúdo
+    );
+
+    // Adiciona a página "Leagues"
+    add_submenu_page(
+        'players', // Página pai
+        'Leagues', // Título da página
+        'Leagues', // Nome do submenu
+        'manage_options', // Permissões
+        'leagues', // Slug
+        'estatistica_leagues_page' // Função que irá renderizar o conteúdo
+    );
+}
+
+add_action('admin_menu', 'estatistica_menu');
+
+// Funções para renderizar o conteúdo das páginas
+function estatistica_players_page() {
+    include plugin_dir_path(__FILE__) . 'parts/players.php';
+}
+
+function estatistica_matches_page() {
+    include plugin_dir_path(__FILE__) . 'parts/matches.php';
+}
+
+function estatistica_leagues_page() {
+    include plugin_dir_path(__FILE__) . 'parts/leagues.php';
 }

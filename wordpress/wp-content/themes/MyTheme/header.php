@@ -12,15 +12,12 @@ echo '<!DOCTYPE html><html>';
 
 echo "<div style='text-decoration: none;padding:30px;background-color:#f7f4e8;border-radius:10px;text-align: center;color:#122f51'>
 <span style='font-size:30px; position: absolute;left: 12%;color:white;color:#122f51'>Estatistica Futebol</span>
-<a href='?' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>";
+<a href='/wp-content/plugins/estatistica/parts/home.php' style='text-decoration: none;padding:10px;font-size:20px;'>Home</a>";
 if(is_user_logged_in()){
-    echo "
-
-<a href='?view=players' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>
-
-<a href='?view=matches' style='text-decoration: none;padding:10px;font-size:20px;'>Today Matches</a>
-<a href='?view=leagues' style='text-decoration: none;padding:10px;font-size:20px;'>Leagues</a>
-";
+    echo "<a href='" . admin_url('admin.php?page=players') . "' style='text-decoration: none;padding:10px;font-size:20px;'>Players</a>";
+    echo "<a href='" . admin_url('admin.php?page=matches') . "' style='text-decoration: none;padding:10px;font-size:20px;'>Today Matches</a>";
+    echo "<a href='" . admin_url('admin.php?page=leagues') . "' style='text-decoration: none;padding:10px;font-size:20px;'>Leagues</a>";
+    
 
     echo  "<a href='?estado=like' style='text-decoration: none;padding:10px;font-size:20px;'>Likes</a>
 ";

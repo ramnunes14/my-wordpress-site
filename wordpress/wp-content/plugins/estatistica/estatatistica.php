@@ -12,9 +12,9 @@ function verstats() {
     $redis = new Redis();
     $redis->connect('127.0.0.1', 6379);
     if(is_user_logged_in()){
-        require 'config.php';
+        require 'includes/config.php';
         session_start();
-        $functions_file = plugin_dir_path(__FILE__) . 'functions.php';
+        $functions_file = plugin_dir_path(__FILE__) . '/includes/functions.php';
         if (file_exists($functions_file))
         {
             require $functions_file;
@@ -144,19 +144,19 @@ function verstats() {
         {
             
             echo "<h1 style='color:white'>Today Matches</h1>";
-            require __DIR__ . '/matches/matches.php';
+            require __DIR__ . '/includes/matches/matches.php';
 
         }
         if(isset($_GET['id']))
         {
 
-            require __DIR__ . '/matches/league-matches.php';
+            require __DIR__ . '/includes/matches/league-matches.php';
 
         }
         if(isset($_GET['view']) && $_GET['view']=='leagues')
         {
 
-            require __DIR__ . '/leagues/leagues.php';
+            require __DIR__ . '/includes/leagues/leagues.php';
 
         }
         if(isset($_GET['API']) && $_GET['API']==true)
