@@ -1,0 +1,192 @@
+/* Estilos gerais */
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Container do jogo */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #e8e8e8;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px; /* Limite de largura para telas grandes */
+    margin: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Nome da casa */
+.home-name {
+    font-weight: bold;
+    font-size: 1rem;
+    position: absolute;
+    left: 10px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* Nome do visitante */
+.away-name {
+    font-weight: bold;
+    font-size: 1rem;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+}
+
+/* Imagem do time */
+.team-logo {
+    width: 50px;
+    height: auto;
+    margin: 10px;
+}
+
+/* Informações da partida */
+.match-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+/* Probabilidade de aposta */
+.match-info p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+    /* Em dispositivos com até 768px de largura (tablets e celulares), ajustamos a largura e o layout */
+    .game-container {
+        width: 90%; /* A largura do container vai ocupar 90% da tela */
+        max-width: none; /* Remove o limite de largura de 500px */
+        padding: 15px;
+    }
+
+    .home-name, .away-name {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte para telas menores */
+    }
+
+    .team-logo {
+        width: 40px; /* Diminui o tamanho das imagens */
+    }
+
+    .match-info p {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte da probabilidade */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Para dispositivos com até 480px de largura (smartphones), ajustamos ainda mais */
+    .game-container {
+        width: 100%; /* A largura do container vai ocupar 100% da tela */
+        padding: 10px;
+    }
+
+    .home-name, .away-name {
+        font-size: 0.8rem; /* Fontes menores */
+    }
+
+    .team-logo {
+        width: 35px; /* Diminui ainda mais o tamanho das imagens */
+    }
+
+    .match-info p {
+        font-size: 0.8rem; /* Fontes menores na probabilidade */
+    }
+}
+/* Isolando o estilo para o formulário */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-container input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.pes{
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+    }
+
+    .form-container label,
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+    }
+}
+/* Definindo a grade para os formulários */
+.tipos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas, com igual largura */
+    gap: 5px; /* Espaçamento entre os formulários */
+    max-width: 800px; /* Ajuste o tamanho conforme necessário */
+    margin: 0 auto;
+    padding:10px; /* Centraliza a div no meio da tela */
+}
+
+/* Estilo dos formulários */
+
+
+
+.botao-post {
+    background-color: #f9f9f9; /* Cor de fundo */
+    color: black; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 5px 5px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mãozinha */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+.botao-post:hover {
+    background-color: #218838; /* Cor de fundo quando o botão é hover */
+}
