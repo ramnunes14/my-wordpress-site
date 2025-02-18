@@ -3,37 +3,37 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Estilo para o contêiner do menu */
+
 .menu-container {
     display: flex;
-    align-items: center; /* Centraliza verticalmente os itens */
-    justify-content: space-between; /* Coloca os itens nas extremidades */
-    width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
 }
 
-/* Estilo do título do site */
+
 .site-title {
     color: black;
     font-size: 20px;
     text-decoration: none;
 }
 
-/* Estilo do botão de menu com 3 barrinhas */
+
 .menu-toggle {
     background-color: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Espaçamento entre as barrinhas */
+    gap: 5px; 
     width: 30px;
     height: 25px;
     padding: 0;
     justify-content: space-between;
-    margin-left: auto; /* Garante que o botão fique no lado direito */
+    margin-left: auto; 
 }
 
-/* Estilo das barras dentro do botão */
+
 .bar {
     width: 100%;
     height: 4px;
@@ -41,26 +41,25 @@ body {
     border-radius: 5px;
 }
 
-/* Estilo do menu */
+
 .me {
-    display: flex; /* Exibe os itens do menu horizontalmente */
-    ; /* Cor de fundo da barra */
+    display: flex; 
     padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
-    justify-content: center; /* Garante que os itens do menu fiquem centrados */
+    justify-content: center; 
     
 }
 
 .navbar-nav {
-    display: flex; /* Alinha os itens na horizontal */
+    display: flex; 
     list-style-type: none;
     padding: 0;
-    justify-content: center; /* Alinha os itens do menu no centro */
+    justify-content: center; 
 }
 
 .navbar-nav li {
-    margin: 0 10px; /* Espaçamento entre os itens do menu */
+    margin: 0 10px; 
 }
 
 .navbar-nav li a {
@@ -72,12 +71,12 @@ body {
 .navbar-nav li a:hover {
     background-color: #007BFF;
     padding: 8px 12px;
-    border-radius: 5px; /* Adiciona arredondamento aos links */
+    border-radius: 5px; 
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
-    /* O menu fica vertical em telas menores */
+    
     .menu-toggle {
         display: block;
     }
@@ -87,8 +86,8 @@ body {
     }
 
     .navbar-nav {
-        flex-direction: column; /* Em telas pequenas, os itens ficam empilhados */
-        align-items: center; /* Garante que os itens fiquem centralizados verticalmente */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .navbar-nav li a {
@@ -113,11 +112,11 @@ body {
     color: black;
     font-size: 20px;
     text-decoration: none;
-    text-align: center; /* Centraliza horizontalmente */
+    text-align: center; 
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente no flexbox */
-    align-items: center; /* Centraliza verticalmente se o contêiner for flex */
-    width: 100%; /* Garante que ocupe toda a largura disponível */
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
 }
 
 .barra-navegacao{

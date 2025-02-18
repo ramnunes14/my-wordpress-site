@@ -7,7 +7,7 @@ if (!is_array($liked_players)) {
     $liked_players = [];
 }
 
-// Verifica o estado do like/unlike
+
 if (isset($_GET['estado']) && in_array($_GET['estado'], ['like', 'unlike'])) {
     if (isset($_GET['player'])) {
         $player = sanitize_text_field($_GET['player']);
@@ -36,7 +36,7 @@ $liked_players = get_user_meta($current_user_id, 'liked_players', true);
 if (!is_array($liked_players)) {
     $liked_players = [];
 }
-// Exibe os jogadores curtidos
+
 if (!empty($liked_players)) {
     echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
     foreach ($liked_players as $like) {
@@ -48,7 +48,7 @@ if (!empty($liked_players)) {
 } else {
     echo "<h2 style='color:white'>NO LIKED PLAYERS</h2>";
 }
-// Função para verificar se o player foi já curtido na sessão
+
 function verificapl() {
     if (isset($_SESSION['likes'])) {
         foreach ($_SESSION['likes'] as $likes) {
@@ -60,7 +60,7 @@ function verificapl() {
     return true;
 }
 
-// Função para verificar se o jogador existe nos dados da API
+
 function verifico($data, $key) {
     foreach ($data as $dadoplayer) {
         foreach ($dadoplayer as $d) {
