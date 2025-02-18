@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
     <div id="navigation" class="barra-navegacao">
         <div class="menu-container">
-            <a class="site-title" href="index.html">
+            <a class="site-title" href="?#">
                 <?php echo get_bloginfo('name'); ?>
             </a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">

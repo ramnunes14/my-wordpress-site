@@ -43,13 +43,28 @@ body {
 
 
 .me {
-    display: flex; 
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 10px;
-    justify-content: center; 
-    
+    display: none; /* Oculta o menu por padrão */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
+
+.me.active {
+    display: flex; /* Mostra o menu quando a classe "active" for adicionada */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
 
 .navbar-nav {
     display: flex; 
@@ -72,29 +87,9 @@ body {
     background-color: #007BFF;
     padding: 8px 12px;
     border-radius: 5px; 
+    color:white;
 }
 
-
-@media (max-width: 768px) {
-    
-    .menu-toggle {
-        display: block;
-    }
-
-    .me {
-        display: block;
-    }
-
-    .navbar-nav {
-        flex-direction: column; 
-        align-items: center; 
-    }
-
-    .navbar-nav li a {
-        font-size: 16px;
-        padding: 10px;
-    }
-}
 
 
 

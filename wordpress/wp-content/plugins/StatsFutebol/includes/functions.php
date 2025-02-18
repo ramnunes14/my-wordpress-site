@@ -1,6 +1,5 @@
 <?php
 
-
 function statsfutebol_register_styles() {
     wp_enqueue_style(
         'statsfutebol-style',
@@ -12,3 +11,15 @@ function statsfutebol_register_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'statsfutebol_register_styles');
+
+function statsfutebol_register_scripts() {
+    wp_enqueue_script(
+        'statsfutebol-script',
+        STATSFUTEBOL_PLUGIN_URL . 'assets/js/script.js',
+        array(), 
+        filemtime(plugin_dir_path(__FILE__) . '../assets/js/script.js'), 
+        true 
+    );
+}
+
+add_action('wp_enqueue_scripts', 'statsfutebol_register_scripts');
