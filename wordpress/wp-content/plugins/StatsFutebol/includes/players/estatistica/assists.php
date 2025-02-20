@@ -1,6 +1,7 @@
 <?php
 function verAssists($data)
 {
+    echo"<div class='cartao'>";
     if(isTheSame($data,"assists_overall","key")>0)
     {
         $resultado_home=(isTheSame($data,"assists_home")/isTheSame($data,"assists_overall"))*100;
@@ -31,5 +32,6 @@ function verAssists($data)
     }
     echo "<span style='color:black'>Por jogo a probabilidade de ele fazer uma assistencia em casa é de ".$resultado_home."%</span></br>";
     echo "<span style='color:black'>Por jogo a probabilidade de ele fazer uma assistencia fora de casa é de ".$resultado_away."%</span>";
+    echo "</div>";
 }
 ?>

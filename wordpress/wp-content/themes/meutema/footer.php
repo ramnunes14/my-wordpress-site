@@ -1,8 +1,8 @@
-<footer class="footer text-center py-2 theme-bg-dark">
+<footer class="blue-foot">
             
-                
+    <h4>Tudo Sobre Futebol</h4>
             
-            </footer>
+</footer>
         
         </div>
 </head> 

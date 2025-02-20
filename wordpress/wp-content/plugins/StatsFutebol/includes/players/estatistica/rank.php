@@ -1,5 +1,6 @@
 <?php
 function verRank($data){
+    
     $posicao=isTheSame($data,"position");
 
     if($posicao=="Defender")
@@ -26,5 +27,6 @@ function verRank($data){
     echo "<h1 style='color:black;'>".isTheSame($data,"full_name")."</h1>";
     echo "<span style='color:red;'>Este jogador esta no top ".$resultado." ".$posicao."s na sua liga</span></br>";
     echo "</div>";
+    
 }
 ?>

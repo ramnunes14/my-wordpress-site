@@ -40,13 +40,13 @@ if (!is_array($liked_players)) {
 if (!empty($liked_players)) {
     echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
     foreach ($liked_players as $like) {
-        echo "<div style='display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 70px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
-        echo "<span style='color:black;'>" . esc_html($like) . "</span></br>";
-        echo "<a style='color:red;' href='?page_id=36&player=" . urlencode($like) . "&estado=unlike'>❤️UNLIKE</a></br>";
+        echo "<div class='like-div'>";
+        echo "<span class='esc'>" . esc_html($like) . "</span></br>";
+        echo "<a class='a-unlike'  href='?page_id=36&player=" . urlencode($like) . "&estado=unlike'>❤️UNLIKE</a></br>";
         echo "</div>";
     }
 } else {
-    echo "<h2 style='color:white'>NO LIKED PLAYERS</h2>";
+    echo "<h2 >No Liked Players</h2>";
 }
 
 function verificapl() {

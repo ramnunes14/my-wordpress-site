@@ -3,7 +3,12 @@
 <div class='games-container'>
 
 <?php 
-
+if(json_decode($redis->get('games'), true)==null){
+?>
+        <h2>Sem Jogos em Direto Hoje!</h2>
+<?php
+}
+else{
 foreach (json_decode($redis->get('games'), true) as $dadoplayer) { 
     
     $home_name = "";
@@ -67,6 +72,6 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
         </div>
     </div>
 
-<?php } ?>
+<?php }} ?>
 
 </div>
