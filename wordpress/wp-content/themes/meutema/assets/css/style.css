@@ -80,12 +80,14 @@ body {
 }
 
 .navbar-nav li a {
+    font-family:arial;
     text-decoration: none;
-    color: white;
-    font-size: 18px;
+    color: black;
+    font-size: 14px;
 }
 
 .navbar-nav li a:hover {
+    font-family:arial;
     background-color: #007BFF;
     padding: 8px 12px;
     border-radius: 5px; 
@@ -94,9 +96,12 @@ body {
 
 
 
-
 .heading {
     text-align: center;
+    font-size: 32px;
+    color: #ff6600;
+    text-align: center;
+    font-weight: bold;
 }
 .nav-item{
     text-align:center;
@@ -118,7 +123,7 @@ body {
 
 .barra-navegacao{
     background:black;
-    border-radius:15px;
+    
     padding:10px;
 }
 .blue-foot {
