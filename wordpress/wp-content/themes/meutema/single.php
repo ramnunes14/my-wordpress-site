@@ -2,7 +2,7 @@
 get_header();
 ?>  
    
-            <article class="article-front">
+            
             
 
 
@@ -18,7 +18,7 @@ get_header();
 
 
 
-            </article>
+            
             
 <?php
 get_footer();

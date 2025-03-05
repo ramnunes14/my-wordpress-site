@@ -22,7 +22,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
     
     foreach ($dadoplayer as $chave => $player) {
         if ($chave == 'home_name') { 
-            $home_name = $player; 
+            $home_name = verificarString($player); 
         }
         
         if ($chave == 'home_image'){ 
@@ -30,7 +30,7 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
             }
 
         if ($chave == 'away_name') {
-            $away_name = $player;
+            $away_name = verificarString($player);
         }
 
         if ($chave == 'away_image') {
@@ -52,23 +52,32 @@ foreach (json_decode($redis->get('games'), true) as $dadoplayer) {
 ?>
 
     <div class='game-container'>
-        <div class='home-name'><?php echo $home_name; ?></div>
+        
         <div class='match-info'>
+        <div class='home-name'><?php echo $home_name; ?></div>
             <img class='team-logo' src='<?php echo $home_image; ?>' alt='Home Team Logo'>
-            <span>VS</span>
+            <span><strong>VS</strong></span>
             <img class='team-logo' src='<?php echo $away_image; ?>' alt='Away Team Logo'>
+            <div class='away-name'><?php echo $away_name; ?></div>
         </div>
-        <div class='away-name'><?php echo $away_name; ?></div>
+        
         <br>
-        <div class='betting-odds'>
-            <p>PROBABILIDADE DE APOSTA</p>
-            <p>
-                <?php 
-                    echo number_format(((1/$team1)*100), 2, ',', '') . "% | " . 
-                         number_format(((1/$x)*100), 2, ',', '') . "% | " . 
-                         number_format(((1/$team2)*100), 2, ',', '') . "%";
-                ?>
-            </p>
+        <div class='bets'>
+            <div class='betting-odds'>
+                <p><strong>PROBABILIDADE DE APOSTA</strong></p>
+                <p>
+                    <?php 
+                        echo number_format(((1/$team1)*100), 2, ',', '') . "% | " . 
+                            number_format(((1/$x)*100), 2, ',', '') . "% | " . 
+                            number_format(((1/$team2)*100), 2, ',', '') . "%";
+                    ?>
+                </p>
+            </div>
+            <div class='betting-houses'>
+                    <img class="imag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logotype_Betclic.svg/1200px-Logotype_Betclic.svg.png" alt="Imagem de exemplo">
+                    <img class="imag" src="https://static.oddsscanner.com/wp/sites/3/feature-image-Solverde.webp" alt="Imagem de exemplo">
+                    <img class="imag" src="https://feelinglucky.pt/wp-content/uploads/2024/09/betano-logo.svg" alt="Imagem de exemplo">
+            </div>
         </div>
     </div>
 

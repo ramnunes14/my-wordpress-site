@@ -49,7 +49,7 @@
                     <i class="fas fa-futbol"></i>
                 </div>
                 <div class="flex-auto">
-                    <a href="/?name=ola&jogador=goals" class="block font-semibold text-gray-900">
+                    <a href="/?page_id=72" class="block font-semibold text-gray-900">
                         Golos
                         <span class="absolute inset-0"></span>
                     </a>
@@ -62,7 +62,7 @@
 
               </div>
               <div class="flex-auto">
-                <a href="/?name=ola&jogador=assists" class="block font-semibold text-gray-900">
+                <a href="/?page_id=74" class="block font-semibold text-gray-900">
                   Assistencias
                   <span class="absolute inset-0"></span>
                 </a>
@@ -75,7 +75,7 @@
 
               </div>
               <div class="flex-auto">
-                <a href="/?name=ola&jogador=cards" class="block font-semibold text-gray-900">
+                <a href="/?page_id=78" class="block font-semibold text-gray-900">
                   Cartoes
                   <span class="absolute inset-0"></span>
                 </a>
@@ -88,7 +88,7 @@
 
               </div>
               <div class="flex-auto">
-                <a href="/?name=ola&jogador=minutes" class="block font-semibold text-gray-900">
+                <a href="/?page_id=80" class="block font-semibold text-gray-900">
                   Minutos
                   <span class="absolute inset-0"></span>
                 </a>
@@ -101,7 +101,7 @@
 
               </div>
               <div class="flex-auto">
-                <a href="/?name=ola&jogador=rank" class="block font-semibold text-gray-900">
+                <a href="/?page_id=76" class="block font-semibold text-gray-900">
                   Rank
                   <span class="absolute inset-0"></span>
                 </a>
@@ -110,7 +110,7 @@
             </div>
           </div>
           <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-            <a href="/?name=ola&jogador=all" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
+            <a href="/?p=42" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
             <i class="fas fa-user"></i>
 
               Nomes dos jogadores
@@ -142,12 +142,12 @@
     
     if ( is_user_logged_in() ) {
     ?>
-        <a href="/wp-login.php?action=logout&redirect_to=/" class="text-sm/6 font-semibold text-gray-900">Logout<span aria-hidden="true">&rarr;</span></a>
+        <a href="/wp-login.php?action=logout&redirect_to=/" class="text-sm/6 font-semibold text-gray-900 blg">Logout<span aria-hidden="true">&rarr;</span></a>
     <?php
     }
     else{
     ?>
-      <a href="/wp-login.php?redirect_to=/" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      <a href="/wp-login.php?redirect_to=/" class="text-sm/6 font-semibold text-gray-900 blg">Log in <span aria-hidden="true">&rarr;</span></a>
     <?php
     }
     ?>

@@ -1,5 +1,7 @@
+<article class="article-front">
 <?php
 require_once MEU_PLUGIN_DIR . 'includes/api/api.php';
+require_once MEU_PLUGIN_DIR . 'includes/players/functions.php';
 
 $current_user_id = get_current_user_id(); 
 $liked_players = get_user_meta($current_user_id, 'liked_players', true);
@@ -38,15 +40,17 @@ if (!is_array($liked_players)) {
 }
 
 if (!empty($liked_players)) {
-    echo "<h2 style='color:white'>LIKED PLAYERS</h2>";
+    echo "<h2 style='color:white'>LIKED PLAYERS</h2></br>";
+    echo "<div class='container'>";
     foreach ($liked_players as $like) {
-        echo "<div class='like-div'>";
-        echo "<span class='esc'>" . esc_html($like) . "</span></br>";
-        echo "<a class='a-unlike'  href='?page_id=36&player=" . urlencode($like) . "&estado=unlike'>❤️UNLIKE</a></br>";
-        echo "</div>";
+        
+        player(json_decode($redis->get('players'), true), esc_html($like));
+        
+        
     }
+    echo "</div>";
 } else {
-    echo "<h2 >No Liked Players</h2>";
+    echo "<h2 class='no-like'>No Liked Players</h2>";
 }
 
 function verificapl() {
@@ -72,3 +76,4 @@ function verifico($data, $key) {
     return false;
 }
 ?>
+</article>

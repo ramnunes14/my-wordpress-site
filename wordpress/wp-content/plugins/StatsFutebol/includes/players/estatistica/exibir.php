@@ -7,10 +7,10 @@ function ver($data){
     $cara_url= "https://cdn.footystats.org/img/players/".strtolower(isTheSame($data,"nationality"))."-".isTheSame($data,"shorthand").".png";
     if (filter_var($cara_url, FILTER_VALIDATE_URL)) 
     {
-        echo "<div style='align-items: center; justify-content: center; padding: 20px; background-color: white; border-radius: 20px; width: 500px; margin: 20px auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);'>";
-        echo "<img src='".$cara_url."'style='width: 100px;'></br></h1>";
-        echo "<h1>".isTheSame($data,"full_name")." ";
-        echo "<img src='".$bandeira_url."'style='width: 50px;position:absolute;'></br></h1>";
+        echo "<div class='cartao'>";
+        echo "<img src='".$cara_url."'style='width: 100px;'></h1>";
+        echo "<h1>".isTheSame($data,"full_name")."</h1></br>";
+        echo "<img src='".$bandeira_url."'style='width: 50px'>";
         echo "<span style='color:red'>".isTheSame($data,"position")."</br></span>";
         echo "<span style='color:red'>".isTheSame($data,"nationality")."</br></span>";
         echo "<span style='color:red'>".isTheSame($data,"minutes_played_overall")."min played</br></span>";

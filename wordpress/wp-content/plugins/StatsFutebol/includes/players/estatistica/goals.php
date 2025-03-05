@@ -1,6 +1,7 @@
 <?php
 function verGoals($data)
 {
+    
     echo"<div class='cartao'>";
     if(isTheSame($data,"goals_overall","key")>0)
     {
@@ -33,5 +34,6 @@ function verGoals($data)
     echo "<span style='color:black'>Por jogo a probabilidade de ele marcar golo em casa é de ".$resultado_home."%</span></br>";
     echo "<span style='color:black'>Por jogo a probabilidade de ele marcar golo fora de casa é de ".$resultado_away."%</span>";
     echo "</div>";
+    
 }
 ?>

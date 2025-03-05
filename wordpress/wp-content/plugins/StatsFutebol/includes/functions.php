@@ -82,6 +82,26 @@ function campo_shortcodes_callback() {
 
 
 
+function verificarString($str) {
+    
+    if (strlen($str) > 10) {
+        
+        $palavras = explode(" ", $str);
+        
+        
+        if (count($palavras) >= 2) {
+            
+            $primeiraPalavra = $palavras[0];
+            $segundaPalavra = implode(" ", array_slice($palavras, 1));
+            
+            
+            return $primeiraPalavra . "<br>" . $segundaPalavra;
+        }
+    }
+    return $str;
+}
+
+
 function minha_pagina_admin() {
     ?>
     <div class="wrap">

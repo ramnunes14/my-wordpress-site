@@ -14,12 +14,12 @@ function isTheSame($data, $key) {
 }
 
 function player ($data,$key){
-   
+    
     $_SESSION['erro']=false;
     foreach($data as $dadoplayer){
         foreach($dadoplayer as $chave=>$player){
-            if(type($dadoplayer,$key)){$_SESSION['erro']=true;}
-                
+                if(type($dadoplayer,$key)){$_SESSION['erro']=true;}
+            
                 break;
         }
     }
@@ -34,9 +34,7 @@ function verificaPlayer($data,$key){
     foreach($data as $d){
         if($d==$key){
             $_SESSION['erro']=true;
-            echo "<div style='display: flex;flex-direction: column;gap: 15px;align-items: center;'>";
             ver($data);
-            echo "</div>";
             return true;
         }
     }
