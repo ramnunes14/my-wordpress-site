@@ -1,11 +1,19 @@
 
+document.getElementById("toggleBtn").addEventListener("click", function(event) {
+    var menu = document.getElementById("menu-tab");
+    menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    event.stopPropagation();
+});
 
-    document.getElementById("toggleBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menu-tab");
-        console.log(menu);
-        menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
-    });
-    
+
+document.addEventListener("click", function(event) {
+    var menu = document.getElementById("menu-tab");
+    var toggleBtn = document.getElementById("toggleBtn");
+    if (menu.style.display === "block" && !menu.contains(event.target) && event.target !== toggleBtn) {
+        menu.style.display = "none";
+    }
+});
+
     document.addEventListener("DOMContentLoaded", function () {
         const pages = document.querySelectorAll(".page");
         const prevButton = document.getElementById("prev");

@@ -2,6 +2,7 @@
 
 <div id='games-container' class='games-container'></div>
 <script>
+    const pageSize = 9;
     var gamesData = <?php echo json_encode(json_decode($redis->get('mleagues'), true)); ?>;
 </script>
 <ul class="pagination">
@@ -14,3 +15,4 @@
     <li class="page"><a href="#">6</a></li>
     <li id="next"><a href="#">»</a></li>
 </ul>
+</br>

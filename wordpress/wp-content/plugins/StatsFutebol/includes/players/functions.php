@@ -99,7 +99,7 @@ function type($data,$key){
 
 function erro(){
     echo "<div style='text-align:center;'>";
-    echo "<h1 style='color:white;'>Seu Input Nao é válido</h1>";
+    echo "<h1 style='color:white;'>Não foi encontrada nenhuma correspondencia</h1>";
     echo "</br>";
     echo "</div>";
     die();

@@ -1,10 +1,6 @@
 
 
-<footer class="blue-foot">
-            
-    <h4>Tudo Sobre Futebol</h4>
-            
-</footer>
+
         
         </div>
 </head> 

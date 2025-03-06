@@ -38,7 +38,12 @@
     position: relative;
     box-sizing: border-box;
 }
-
+.game-container:hover{
+    scale:1.05;
+}
+.cartao:hover{
+    scale:1.05;
+}
 .betting-houses{
     border-radius:15px;
     background-color:#e8e9e6;
@@ -132,12 +137,13 @@
 }
 
 .form-container {
-    max-width: 400px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .form-container form {
@@ -191,10 +197,10 @@
 .tipos {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 5px; 
+    gap: 10px; 
     max-width: 800px; 
     margin: 0 auto;
-    padding:10px; 
+    padding-top:70px; 
 }
 
 
@@ -204,7 +210,8 @@
 .botao-post {
     background-color: #f9f9f9; 
     color: black; 
-    border: none; 
+    border: 1px solid black; 
+
     padding: 5px 5px; 
     font-size: 16px; 
     cursor: pointer; 
@@ -250,17 +257,107 @@
 }
 .container {
     display:inline-grid;  
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas por padrão */
-    gap: 20px ; /* Espaço entre os itens */
-    justify-items: center; /* Centraliza os itens horizontalmente */
-    align-items: center;   /* Centraliza os itens verticalmente */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px ; 
+    justify-items: center; 
+    align-items: center;   
     padding:15px;
 }
 .corr {
     display: flex;
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center;     /* Centraliza os itens verticalmente */
-    text-align: center;      /* Centraliza o texto dentro dos itens */
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
 }
 
 
+.data-live{
+    color:black;
+    padding:5px;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    gap:20px;
+    border-radius: 15px;
+    width:200px;
+}
+.no-games{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.text-ng{
+    color:white;
+    font-size:40px;
+}
+.text-n{
+    color:white;
+    font-size:20px;
+}
+#btn-dat{
+    background-color: blue;
+    color:white;
+    padding:10px 10px;
+    border-radius:10px;
+}
+#btn-dat:hover{
+    scale:1.05;
+}
+#form-dat{
+    background-color:grey;
+    padding:10px;
+    border-radius:10px;
+    color:white;
+
+}
+.side-bar{
+    grid-column: 2; /* Coluna 2 */
+    grid-row: span 2; /* Ocupa duas linhas (alturas) */
+    background-color:white;
+    padding:20px;
+    width: 400px;
+    min-height: 700px;
+    border-radius:15px;
+    
+}
+.news-tdy:hover{
+    scale:1.01;
+}
+.news-tdy{
+    background-color: #e9f1ee;
+    padding:20px;
+    margin: 20px;
+    border-radius: 10px;
+    
+    display:flex;
+    gap:5px;
+    flex-direction: column;
+}
+#news-vermais{
+    padding:10px;
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+}
+.jogos{
+    padding:20px;
+    background-color: white;
+    width: 100%;
+    min-height: 700px;
+    
+    border-radius: 10px;
+}
+#text-titl{
+    font-size: 50px;
+}
+.flex-div{
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    gap:20px;
+    margin:20px;
+}

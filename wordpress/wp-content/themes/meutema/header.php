@@ -193,6 +193,14 @@
        
         
         </div>
+        <div class="barr-pesquisa">
+              <form class="form-pesq">
+                <input id="pesq" name="jogador" placeholder="Pesquisa">
+                <input id="pesq" type="hidden" name="name" value="ola">
+                <button type="submit" id="pesq-btn"><i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
     </nav>
 
 
@@ -203,3 +211,4 @@
             <header class="page-title theme-bg-light text-center gradient py-5">
                 <h1 class="heading"><?php the_title(); ?></h1>
             </header>
+            

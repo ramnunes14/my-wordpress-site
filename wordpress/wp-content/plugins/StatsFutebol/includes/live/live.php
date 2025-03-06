@@ -4,8 +4,15 @@
 
 <?php 
 if(json_decode($redis->get('games'), true)==null){
-?>
-        <h2>Sem Jogos em Direto Hoje!</h2>
+?>      <div class="no-games">
+            <h2 class="text-ng">Sem Jogos em Direto Hoje!</h2>
+            <h2 class="text-n">Pesquisar noutra data</h2>
+            <form class="data-live" action="">
+                <label>Data</label> 
+                <input id="form-dat" type=date>
+                <input id="btn-dat" type=submit>
+            </form>
+        </div>
 <?php
 }
 else{

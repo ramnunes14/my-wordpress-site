@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentPage = 1;
-    const pageSize = 9;
+    
     const totalPages = Math.ceil(gamesData.length / pageSize);
     const container = document.querySelector(".games-container");
     const prevBtn = document.getElementById("prev");
@@ -103,3 +103,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderGames(); 
 });
+

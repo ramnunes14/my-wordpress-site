@@ -3,6 +3,7 @@ function verGoals($data)
 {
     
     echo"<div class='cartao'>";
+
     if(isTheSame($data,"goals_overall","key")>0)
     {
         $resultado_home=(isTheSame($data,"goals_home")/isTheSame($data,"goals_overall"))*100;
